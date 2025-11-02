@@ -11,6 +11,20 @@ const monaSans = Mona_Sans({
 export const metadata: Metadata = {
   title: "Ray",
   description: "An AI-powered platform for preparing for interviews.",
+  icons: {
+    icon: [
+      {
+        media: "(prefers-color-scheme: light)",
+        url: "/favicon/favicon-light.png",
+        type: "image/png",
+      },
+      {
+        media: "(prefers-color-scheme: dark)",
+        url: "/favicon/favicon-dark.png",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

@@ -43,8 +43,56 @@ references:
 
 3. firebase
 
-4. https://aistudio.google.com/
+4. Google AI studio
 
 5. vercel
 
-6. https://dashboard.vapi.ai/#
+6. VAPI (voice agent platform)
+
+## Here are the commands required to set up and run this project, in chronological order.
+
+### 1. Project Initialization
+
+These commands scaffold the new Next.js application and initialize the UI library.
+
+Create the Next.js app in the current folder
+
+**npx create-next-app@latest ./**
+
+Initialize shadcn/ui
+
+This will ask you a few configuration questions.
+
+**npx shatcn-ui@latest init**
+
+### 2. Install Dependencies
+
+This is a complete list of all the packages installed throughout the video. You can install them all at once.
+
+zod, react-hook-form, and @hookform/resolvers are peer dependencies for the shadcn/ui Form component.
+
+sonner is for the pop-up notifications (toasts).
+
+tailwindcss-animate is for animations with Tailwind.
+
+firebase and firebase-admin are for the database and authentication.
+
+ai and @ai-sdk/google are for the Gemini AI.
+
+@vapi/web is for the Vapi voice agent.
+
+dayjs is for date formatting.
+
+**_npm install firebase firebase-admin @vapi/web ai @ai-sdk/google dayjs tailwindcss-animate zod react-hook-form @hookform/resolvers sonner_**
+
+### 3. Add shadcn/ui Components
+
+After installing the dependencies, you can add the specific components used in the project.
+
+**_npx shatcn-ui@latest add button form input_**
+
+### 4. Run the Development Server
+
+This command starts the local server.
+
+**_npm run dev_**

@@ -5,13 +5,16 @@ import { redirect } from "next/navigation";
 
 const Rootlayout = async ({ children }: { children: React.ReactNode }) => {
   const isUserAuthenticated = await isAuthenticated();
+  // Avoid redirect loops: send unauthenticated users to the sign-in page.
+  // Note: if you want the landing page at `/` to be public, move the
+  // landing page out of the protected `(root)` group (e.g. to `app/page.tsx`).
   if (!isUserAuthenticated) redirect("/sign-in");
 
   return (
     <div className="root-layout">
       <nav>
         <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/home" className="flex items-center gap-2">
             <Image
               src="/favicon-dark.png"
               alt="MockMate Logo"

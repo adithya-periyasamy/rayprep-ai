@@ -24,7 +24,7 @@ const page = async () => {
     <>
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-2xl font-semibold text-primary-100">
-          Welcome back, {user?.name || "User"}👋
+          Welcome {user?.name || "User"}👋
         </h1>
         <SignOutButton /> {/* 👈 button added here */}
       </div>
