@@ -140,8 +140,19 @@ const AuthForm = ({ type }: { type: FormType }) => {
             type="password"
           />
 
-          <Button type="submit" className="btn w-full">
-            {isSignin ? "Sign In" : "Create an Account"}
+          <Button 
+            type="submit" 
+            className="btn w-full"
+            disabled={form.formState.isSubmitting}
+          >
+            {form.formState.isSubmitting ? (
+              <span className="flex items-center justify-center gap-2">
+                <span className="size-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+                {isSignin ? "Signing in..." : "Creating account..."}
+              </span>
+            ) : (
+              isSignin ? "Sign In" : "Create an Account"
+            )}
           </Button>
         </form>
       </Form>

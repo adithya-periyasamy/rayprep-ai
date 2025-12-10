@@ -2,9 +2,8 @@ import { getFeedbackByInterviewId } from "@/lib/actions/general.action";
 import { getRandomInterviewCover } from "@/lib/utils";
 import dayjs from "dayjs";
 import Image from "next/image";
-import Link from "next/link";
 import DisplayTechIcons from "./DisplayTechIcons";
-import { Button } from "./ui/button";
+import InterviewCardButton from "./InterviewCardButton";
 
 const InterviewCard = async ({
   interviewId,
@@ -17,9 +16,9 @@ const InterviewCard = async ({
   const feedback =
     userId && interviewId
       ? await getFeedbackByInterviewId({
-          interviewId,
-          userId,
-        })
+        interviewId,
+        userId,
+      })
       : null;
   const normalizedType = /mix/gi.test(type) ? "Mixed" : type;
   const formattedDate = dayjs(
@@ -74,17 +73,14 @@ const InterviewCard = async ({
         <div className="flex flex-row justify-between">
           <DisplayTechIcons techStack={techstack} />
 
-          <Button className="btn-primary">
-            <Link
-              href={
-                feedback
-                  ? `/interview/${interviewId}/feedback`
-                  : `/interview/${interviewId}`
-              }
-            >
-              {feedback ? "Check Feedback" : "View Interview"}
-            </Link>
-          </Button>
+          <InterviewCardButton
+            href={
+              feedback
+                ? `/interview/${interviewId}/feedback`
+                : `/interview/${interviewId}`
+            }
+            label={feedback ? "Check Feedback" : "View Interview"}
+          />
         </div>
       </div>
     </div>

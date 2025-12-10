@@ -1,9 +1,8 @@
 import dayjs from "@/lib/dayjs"; // Use your custom dayjs
 import Image from "next/image";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 
-import { Button } from "@/components/ui/button";
+import FeedbackButtons from "@/components/FeedbackButtons";
 import { getCurrentUser } from "@/lib/actions/auth.action";
 import {
   getFeedbackByInterviewId,
@@ -92,26 +91,7 @@ const Feedback = async ({ params }: RouteParams) => {
         </ul>
       </div>
 
-      <div className="buttons">
-        <Button className="btn-secondary flex-1">
-          <Link href="/home" className="flex w-full justify-center">
-            <p className="text-sm font-semibold text-primary-200 text-center">
-              Back to dashboard
-            </p>
-          </Link>
-        </Button>
-
-        <Button className="btn-primary flex-1">
-          <Link
-            href={`/interview/${id}`}
-            className="flex w-full justify-center"
-          >
-            <p className="text-sm font-semibold text-black text-center">
-              Retake Interview
-            </p>
-          </Link>
-        </Button>
-      </div>
+      <FeedbackButtons interviewId={id} />
     </section>
   );
 };
