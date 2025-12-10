@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-const Rootlayout = async ({ children }: { children: React.ReactNode }) => {
+const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const isUserAuthenticated = await isAuthenticated();
   // Avoid redirect loops: send unauthenticated users to the sign-in page.
   // Note: if you want the landing page at `/` to be public, move the
@@ -31,4 +31,4 @@ const Rootlayout = async ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default Rootlayout;
+export default RootLayout;
